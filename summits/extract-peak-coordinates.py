@@ -26,6 +26,7 @@ def main(arguments):
 
     args = parser.parse_args(arguments)
 
+    print("Name, Lat, Long")
     for filename in args.infiles.split(","):
         with open(filename, 'r') as f:
             soup = BeautifulSoup(f.read())
@@ -34,8 +35,9 @@ def main(arguments):
             long = info[info.find(" ", info.find("W4")):info.
                         find(" ",
                              info.find(" ", info.find("W4")) + 1)]
-            name = [l.text for l in soup.find_all("h1")]
-            print("\"%s\", %s,%s" % (name[0], lat, long))
+            el = [l.text for l in soup.find_all("h2")][0]
+            name = [l.text for l in soup.find_all("h1")][0]
+            print("\"%s (%s)\", %s,%s" % (name, el, lat, long))
 
 
 if __name__ == '__main__':
