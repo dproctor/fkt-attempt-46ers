@@ -35,7 +35,7 @@ def main(arguments):
                         find(" ",
                              info.find(" ", info.find("W4")) + 1)]
             name = [l.text for l in soup.find_all("h1")]
-            print("\"%s\",%s,%s" % (name[0], lat, long))
+            print("\"%s\", %s,%s" % (name[0], lat, long))
 
 
 if __name__ == '__main__':
