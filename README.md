@@ -12,13 +12,13 @@ file viewable in Google Earth at `/tmp/optimal-ps.txt`, run:
 ```
 python3 routes/solve_tsp.py \
   '-d https://docs.google.com/spreadsheets/u/0/d/19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc/export?format=csv&id=19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc&gid=0' \
-    > routes/optimal-ps.txt \
+    > /tmp/optimal-ps.txt \
 && python3 routes/ps2gpx.py \
   -c summits/coordinates.csv \
   -ps /tmp/optimal-ps.txt \
     > /tmp/optimal-ps.gpx \
 && python3 routes/ps2d.py \
-  -ps routes/optimal-ps.txt \
+  -ps /tmp/optimal-ps.txt \
   '-d https://docs.google.com/spreadsheets/u/0/d/19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc/export?format=csv&id=19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc&gid=0'
 ```
 
