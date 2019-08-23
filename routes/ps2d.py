@@ -11,7 +11,7 @@ Computes the distance and elevation gain/loss of a particular peak sequence.
 This assumes that the provided distance matrix has distances for all of the
 implied transitions, and does not do any path finding.
 
-Dev command:  ls routes/ps2d.py | entr -c -s 'python3 routes/ps2d.py -ps routes/2019-fkt-peak-sequence.txt -d https://docs.google.com/spreadsheets/u/0/d/19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc/export?format=csv&id=19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc&gid=0'
+Dev command:  ls routes/ps2d.py | entr -c -s "python3 routes/ps2d.py '-ps routes/2019-fkt-peak-sequence.txt -d https://docs.google.com/spreadsheets/u/0/d/19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc/export?format=csv&id=19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc&gid=0'"
 
 Google sheet with distance matrix is at:
 https://docs.google.com/spreadsheets/d/19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc/edit?usp=sharing
@@ -49,14 +49,14 @@ def main(arguments):
     assert response.status_code == 200, 'Download failed'
 
     reader = csv.reader(StringIO(response.content.decode("utf-8")))
-    distances = common.parse_distance_matrix(reader)
+    distances = common.parse_distance_matrix(reader, common.DEFAULT_COST)
     totals = [0., 0., 0.]
     curr = None
     for p in args.peak_sequence.readlines():
         pe = p.strip()
         if curr is not None:
-            if distances[curr][pe] is None:
-                raise Exception('Missing distance {} > {}'.format(curr, pe))
+            assert distances[curr][
+                pe] is not None, 'Missing distance: {} > {}'.format(curr, pe)
             totals[0] += distances[curr][pe][0]
             totals[1] += distances[curr][pe][1]
             totals[2] += distances[curr][pe][2]

@@ -21,6 +21,8 @@ import sys
 import argparse
 import re
 
+import common
+
 GPX_HEADER = """<?xml version="1.0" encoding="UTF-8"?>
 <gpx creator="Garmin Connect" version="1.1"
   xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/11.xsd"
@@ -78,6 +80,8 @@ def main(arguments):
     i = 0
     for p in args.peak_sequence.readlines():
         peak = p.strip()
+        if not common.is_peak(peak):
+            continue
         print(TRKPT_PATTERN % (peaks_to_lat_long[peak]['lat'],
                                peaks_to_lat_long[peak]['long'], i))
         i += 1
