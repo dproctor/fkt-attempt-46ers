@@ -6,6 +6,38 @@
 
 Google Earth is the best way to view all of these files.
 
+## Scripts
+To generate an optimal route, print statistics to `stdout` and generate a GPX
+file viewable in Google Earth at `/tmp/optimal-ps.txt`, run:
+```
+python3 routes/solve_tsp.py \
+  '-d https://docs.google.com/spreadsheets/u/0/d/19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc/export?format=csv&id=19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc&gid=0' \
+    > routes/optimal-ps.txt \
+&& python3 routes/ps2gpx.py \
+  -c summits/coordinates.csv \
+  -ps /tmp/optimal-ps.txt \
+    > /tmp/optimal-ps.gpx \
+&& python3 routes/ps2d.py \
+  -ps routes/optimal-ps.txt \
+  '-d https://docs.google.com/spreadsheets/u/0/d/19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc/export?format=csv&id=19ft1S-RoGl5jbBcyiCKPZuqL4a4MvFkjW_hu6I87Fhc&gid=0'
+```
+
+### Routes
+- `routes/ps2d.py` takes a peak sequence (like those in `routes/*.txt` files) and
+  prints the distance of the route, using a distance matrix provided via a
+  Google Sheet csv url.
+- `routes/ps2gpx.py` takes a peak sequence (like those in `routes/*.txt` files) and
+  prints a corresponding GPX file.
+- `routes/solve_tsp.py` solves the Travelling Salesman Problem to compute the
+  most efficient tour of the 46ers.
+
+### Summits
+- `summits/extract-peak-urls.py` extracts urls of websites with info about each 46er
+  from a url containing a list of them.
+- `summits/extract-peak-coordinates.py` extracts the GPS coordinates of a peak from a
+  list of html documents containing information from it. Designed to take the
+  output of `summits/extract-peak-urls`.
+
 ## Static resources
 ### Maps
 - `maps/` contains USGS topo maps for the Adirondacks High Peaks.
@@ -27,20 +59,3 @@ Google Earth is the best way to view all of these files.
 ### Summits
 - `summits/coordinates.csv` is a CSV file containing the names of the 46ers,
   along with their elevation and coordinates.
-
-## Scripts
-### Routes
-- `routes/ps2d.py` takes a peak sequence (like those in `routes/*.txt` files) and
-  prints the distance of the route, using a distance matrix provided via a
-  Google Sheet csv url.
-- `routes/ps2gpx.py` takes a peak sequence (like those in `routes/*.txt` files) and
-  prints a corresponding GPX file.
-- `routes/solve_tsp.py` solves the Travelling Salesman Problem to compute the
-  most efficient tour of the 46ers.
-
-### Summits
-- `summits/extract-peak-urls.py` extracts urls of websites with info about each 46er
-  from a url containing a list of them.
-- `summits/extract-peak-coordinates.py` extracts the GPS coordinates of a peak from a
-  list of html documents containing information from it. Designed to take the
-  output of `summits/extract-peak-urls`.
