@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="Garmin Connect" version="1.1"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/11.xsd"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/TrackPointExtension/v1"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+  <metadata>
+    <name>46er FKT attempt proposed peak sequence</name>
+    <link href="connect.garmin.com">
+      <text>Garmin Connect</text>
+    </link>
+    <time>2019-08-18T20:28:51.000Z</time>
+  </metadata>
+  <trk>
+    <name>46er FKT attempt proposed peak sequence</name>
+    <trkseg>
+      <trkpt lat="44.387191" lon="-73.889839">
+        <time>2019-08-01T00:00:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.365795" lon="-73.903219">
+        <time>2019-08-01T00:01:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.21855" lon="-73.860169">
+        <time>2019-08-01T00:02:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.212416" lon="-73.853665">
+        <time>2019-08-01T00:03:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.161243" lon="-73.720261">
+        <time>2019-08-01T00:04:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.154363" lon="-73.705445">
+        <time>2019-08-01T00:05:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.06534" lon="-73.757444">
+        <time>2019-08-01T00:06:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.05176" lon="-73.780276">
+        <time>2019-08-01T00:07:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.060073" lon="-73.774443">
+        <time>2019-08-01T00:08:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.069622" lon="-73.777727">
+        <time>2019-08-01T00:09:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.082417" lon="-73.786588">
+        <time>2019-08-01T00:10:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.105941" lon="-73.796421">
+        <time>2019-08-01T00:11:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.089104" lon="-73.816293">
+        <time>2019-08-01T00:12:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.094202" lon="-73.834472">
+        <time>2019-08-01T00:13:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.081398" lon="-73.844691">
+        <time>2019-08-01T00:14:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.1134" lon="-73.850664">
+        <time>2019-08-01T00:15:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.127528" lon="-73.858031">
+        <time>2019-08-01T00:16:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.134718" lon="-73.849824">
+        <time>2019-08-01T00:17:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.140504" lon="-73.845274">
+        <time>2019-08-01T00:18:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.148407" lon="-73.832884">
+        <time>2019-08-01T00:19:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.182303" lon="-73.870842">
+        <time>2019-08-01T00:20:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.126584" lon="-73.875073">
+        <time>2019-08-01T00:21:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.121392" lon="-73.88656">
+        <time>2019-08-01T00:22:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.105796" lon="-73.900787">
+        <time>2019-08-01T00:23:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.112857" lon="-73.923784">
+        <time>2019-08-01T00:24:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.099543" lon="-73.9312">
+        <time>2019-08-01T00:25:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.111683" lon="-73.93537">
+        <time>2019-08-01T00:26:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.103354" lon="-73.975278">
+        <time>2019-08-01T00:27:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.094817" lon="-73.950006">
+        <time>2019-08-01T00:28:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.126996" lon="-73.960092">
+        <time>2019-08-01T00:29:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.140661" lon="-73.916373">
+        <time>2019-08-01T00:30:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.157024" lon="-73.921508">
+        <time>2019-08-01T00:31:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.187291" lon="-74.024109">
+        <time>2019-08-01T00:32:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.179393" lon="-74.027066">
+        <time>2019-08-01T00:33:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.151768" lon="-73.979762">
+        <time>2019-08-01T00:34:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.143624" lon="-73.986721">
+        <time>2019-08-01T00:35:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.136881" lon="-73.998263">
+        <time>2019-08-01T00:36:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.127744" lon="-74.01232">
+        <time>2019-08-01T00:37:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.071037" lon="-73.939912">
+        <time>2019-08-01T00:38:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.082445" lon="-74.131163">
+        <time>2019-08-01T00:39:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.095561" lon="-74.160136">
+        <time>2019-08-01T00:40:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.098438" lon="-74.132291">
+        <time>2019-08-01T00:41:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.158107" lon="-74.172565">
+        <time>2019-08-01T00:42:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.159861" lon="-74.19967">
+        <time>2019-08-01T00:43:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.154118" lon="-74.211587">
+        <time>2019-08-01T00:44:00:000Z</time>
+      </trkpt>
+      <trkpt lat="44.143807" lon="-74.214392">
+        <time>2019-08-01T00:45:00:000Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
