@@ -17,8 +17,6 @@ import requests
 
 import common
 
-GAIA_REQUEST_PATTERN = 'https://routing.gaiagps.com/route?json=%7B%22locations%22%3A%5B%7B%22lon%22%3A{start_lon}%2C%22lat%22%3A{start_lat}%2C%22type%22%3A%22break%22%7D%2C%7B%22lon%22%3A{end_lon}%2C%22lat%22%3A{end_lat}%2C%22type%22%3A%22break%22%7D%5D%2C%22costing%22%3A%22pedestrian%22%7D&max_hiking_difficulty=6'
-
 
 def main(arguments):
 
@@ -41,7 +39,7 @@ def main(arguments):
             if p == q:
                 continue
             res = requests.post(
-                GAIA_REQUEST_PATTERN.format(
+                common.GAIA_REQUEST_PATTERN.format(
                     start_lon=peaks_to_lat_long[p]['long'],
                     start_lat=peaks_to_lat_long[p]['lat'],
                     end_lon=peaks_to_lat_long[q]['long'],

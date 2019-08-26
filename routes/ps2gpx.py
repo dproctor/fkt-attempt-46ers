@@ -20,6 +20,9 @@ import os
 import sys
 import argparse
 import re
+import requests
+import polyline
+import datetime
 
 import common
 
@@ -37,7 +40,7 @@ GPX_HEADER = """<?xml version="1.0" encoding="UTF-8"?>
     <time>2019-08-18T20:28:51.000Z</time>
   </metadata>
   <trk>
-    <name>46er FKT attempt proposed peak sequence</name>
+    <name>46er FKT attempt proposed route</name>
     <trkseg>"""
 
 GPX_FOOTER = """    </trkseg>
@@ -45,7 +48,7 @@ GPX_FOOTER = """    </trkseg>
 </gpx>"""
 
 TRKPT_PATTERN = """      <trkpt lat="%s" lon="%s">
-        <time>2019-08-01T00:%02d:00:000Z</time>
+        <time>%s</time>
       </trkpt>"""
 
 
@@ -58,6 +61,11 @@ def main(arguments):
                         '--coordinates',
                         help="Coordinates csv, with summit name, lat, long",
                         type=argparse.FileType('r'))
+    parser.add_argument(
+        '-s',
+        '--simplify',
+        help="Print simplified (only summit coordinates) or full route",
+        type=bool)
     parser.add_argument('-ps',
                         '--peak_sequence',
                         help="Peak sequence file, one summit per line",
@@ -70,14 +78,36 @@ def main(arguments):
         for i in args.coordinates.readlines()[1:])
 
     print(GPX_HEADER)
+    start_time = datetime.datetime(2018, 8, 1)
     i = 0
+    last = None
     for p in args.peak_sequence.readlines():
         peak = p.strip()
         if not common.is_peak(peak):
             continue
-        print(TRKPT_PATTERN % (peaks_to_lat_long[peak]['lat'],
-                               peaks_to_lat_long[peak]['long'], i))
+        if args.simplify:
+            print(TRKPT_PATTERN %
+                  (peaks_to_lat_long[peak]['lat'],
+                   peaks_to_lat_long[peak]['long'],
+                   (start_time + datetime.timedelta(0, i * 3600)).isoformat()))
+        else:
+            if last is None:
+                last = peak
+                continue
+            res = requests.post(
+                common.GAIA_REQUEST_PATTERN.format(
+                    start_lon=peaks_to_lat_long[last]['long'],
+                    start_lat=peaks_to_lat_long[last]['lat'],
+                    end_lon=peaks_to_lat_long[peak]['long'],
+                    end_lat=peaks_to_lat_long[peak]['lat']))
+            for point in polyline.decode(
+                    res.json()['trip']['legs'][0]['shape']):
+                print(TRKPT_PATTERN %
+                      (point[0] / 10, point[1] / 10,
+                       (start_time +
+                        datetime.timedelta(0, i * 3600)).isoformat()))
         i += 1
+        last = peak
     print(GPX_FOOTER)
 
 

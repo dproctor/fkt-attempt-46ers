@@ -21,6 +21,8 @@ from collections import defaultdict
 from dijkstar import Graph, find_path
 from io import StringIO
 
+GAIA_REQUEST_PATTERN = 'https://routing.gaiagps.com/route?json=%7B%22locations%22%3A%5B%7B%22lon%22%3A{start_lon}%2C%22lat%22%3A{start_lat}%2C%22type%22%3A%22break%22%7D%2C%7B%22lon%22%3A{end_lon}%2C%22lat%22%3A{end_lat}%2C%22type%22%3A%22break%22%7D%5D%2C%22costing%22%3A%22pedestrian%22%7D&max_hiking_difficulty=6'
+
 _TRAILHEAD_NAME = "Trailhead"
 
 
