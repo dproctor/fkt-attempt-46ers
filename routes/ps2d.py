@@ -42,6 +42,11 @@ def main(arguments):
                         '--distance_matrix',
                         help='Url of distance matrix',
                         type=str)
+    parser.add_argument(
+        '-pw',
+        '--pairwise_distances',
+        help='csv file containing pairwise distances between peaks',
+        type=argparse.FileType('r'))
 
     args = parser.parse_args(arguments)
 
@@ -50,6 +55,11 @@ def main(arguments):
 
     reader = csv.reader(StringIO(response.content.decode("utf-8")))
     distances = common.parse_distance_matrix(reader, common.DEFAULT_COST)
+    # Parse pairwise distances
+    pairs_distances = common.parse_distance_matrix_from_pairs(
+        csv.reader(args.pairwise_distances))
+    distances = common.merge_pairwise_and_matrix_distances(
+        pairs_distances, distances)
     totals = [0., 0., 0.]
     curr = None
     for p in args.peak_sequence.readlines():

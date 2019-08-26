@@ -64,17 +64,10 @@ def main(arguments):
                         type=argparse.FileType('r'))
 
     args = parser.parse_args(arguments)
-    pat = re.compile('(?P<peak>[^,]*),.*, (?P<lat>[^,]*), (?P<long>[^,]*)\\n')
-
-    def line_to_peak_lat_long(i):
-        a = pat.search(i)
-        return (a.group('peak'), {
-            'lat': a.group('lat'),
-            'long': a.group('long')
-        })
 
     peaks_to_lat_long = dict(
-        line_to_peak_lat_long(i) for i in args.coordinates.readlines()[1:])
+        common.line_to_peak_lat_long(i)
+        for i in args.coordinates.readlines()[1:])
 
     print(GPX_HEADER)
     i = 0

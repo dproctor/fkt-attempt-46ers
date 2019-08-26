@@ -38,6 +38,11 @@ def main(arguments):
                         '--distance_matrix',
                         help='Url of distance matrix',
                         type=str)
+    parser.add_argument(
+        '-pw',
+        '--pairwise_distances',
+        help='csv file containing pairwise distances between peaks',
+        type=argparse.FileType('r'))
 
     args = parser.parse_args(arguments)
 
@@ -49,6 +54,12 @@ def main(arguments):
           common.DEFAULT_COST.__name__,
           file=sys.stderr)
     distance_matrix = common.parse_distance_matrix(reader, common.DEFAULT_COST)
+
+    # Parse pairwise distances
+    pairs_distances = common.parse_distance_matrix_from_pairs(
+        csv.reader(args.pairwise_distances))
+    distance_matrix = common.merge_pairwise_and_matrix_distances(
+        pairs_distances, distance_matrix)
     peaks = list(distance_matrix.keys())
 
     manager = pywrapcp.RoutingIndexManager(
@@ -71,7 +82,11 @@ def main(arguments):
 
     search_parameters = pywrapcp.DefaultRoutingSearchParameters()
     search_parameters.first_solution_strategy = (
-        routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)
+        routing_enums_pb2.FirstSolutionStrategy.SAVINGS)
+    search_parameters.local_search_metaheuristic = (
+        routing_enums_pb2.LocalSearchMetaheuristic.GUIDED_LOCAL_SEARCH)
+    search_parameters.time_limit.seconds = 30
+    search_parameters.log_search = True
 
     assignment = routing.SolveWithParameters(search_parameters)
 

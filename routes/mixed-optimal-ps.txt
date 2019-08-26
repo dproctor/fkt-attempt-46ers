@@ -28,14 +28,14 @@ Mount Skylight
 Gray Peak
 Cliff Mountain
 Mount Redfield
-Mount Colden
-Table Top Mountain
-Phelps Mountain
-Nye Mountain
-Street Mountain
-Wright Peak
-Algonquin Peak
 Iroquois Peak
+Algonquin Peak
+Wright Peak
+Street Mountain
+Nye Mountain
+Phelps Mountain
+Table Top Mountain
+Mount Colden
 Mount Marshall
 Allen Mountain
 Santanoni Peak
@@ -43,6 +43,6 @@ Couchsachraga Peak
 Panther Peak
 Seymour Mountain
 Seward Mountain
-Donaldson Mountain
 Mount Emmons
+Donaldson Mountain
 Trailhead
